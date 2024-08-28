@@ -1,0 +1,19 @@
+npm init -> creates package.json
+
+bundlers ->
+    A bundler is a tool that bundles our app, packages our app so that it can be shipped to production.
+    webpack, parcel, vite (parcel is used here)
+    NOTE: In create-react-app, the bundler used is webpack
+
+dependencies ->
+    1. devDependencies: required in development phase. (e.g. npm install -d parcel -> here -D is for dev dependency)
+    2. normal dependencies: used in production.
+
+tilde and caret
+
+installing any package installs transitive packages also (its dependent packages)
+
+npm -> installing package
+npx -> executing package
+
+
