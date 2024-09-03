@@ -23,3 +23,5 @@ all the data under root id will get replaced when rendering is done to that part
 JSX code is transpiled before it reaches to JS => Transpilation is done by parcel (especially babel transpiles that code, JSX->react) 
 JSX => react.createElement => react element - JS object => HTML element (render)
 
+React functional component is a JavaScript function that returns a piece of JSX code or
+a JS function that returns a React element.
