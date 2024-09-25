@@ -25,3 +25,6 @@ JSX => react.createElement => react element - JS object => HTML element (render)
 
 React functional component is a JavaScript function that returns a piece of JSX code or
 a JS function that returns a React element.
+
+*congfig driven UI
+
