@@ -28,3 +28,4 @@ a JS function that returns a React element.
 
 *congfig driven UI
 
+whenever a state variable updates, react rerenders the component
