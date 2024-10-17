@@ -11,6 +11,10 @@ const Body = () => {
     fetchData();
   }, []);
 
+  // useEffect(() => {
+  //   setFilteredRestaurants(listOfRestaurants);
+  // }, [listOfRestaurants]);
+
   const fetchData = async () => {
     const data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5204303&lng=73.8567437&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
@@ -44,9 +48,11 @@ const Body = () => {
           />
           <button
             onClick={() => {
-              const filteredList = listOfRestaurants.filter((res) =>
-                res.info.name.toLowerCase().includes(searchText.toLowerCase())
-              );
+              const filteredList = listOfRestaurants.filter((res) => {
+                return res.info.name
+                  .toLowerCase()
+                  .includes(searchText.toLowerCase());
+              });
               // console.log(filteredList);
 
               setFilteredRestaurants(filteredList);
