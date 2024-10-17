@@ -5,7 +5,7 @@ import Shimmer from "./Shimmer";
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
-  const [searchText, setSearchText] = useState();
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     fetchData();
@@ -19,15 +19,18 @@ const Body = () => {
     const data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5204303&lng=73.8567437&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
+
     const jsonData = await data.json();
     console.log(jsonData);
+
+    //optional chaining
     setListOfRestaurants(
-      jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+      jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
 
     setFilteredRestaurants(
-      jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+      jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
   };
@@ -64,8 +67,8 @@ const Body = () => {
         <button
           className="filter-btn"
           onClick={() => {
-            setListOfRestaurants(
-              listOfRestaurants.filter((res) => res.info.avgRating > 4)
+            setFilteredRestaurants(
+              filteredRestaurants.filter((res) => res.info.avgRating > 4.3)
             );
           }}
         >
