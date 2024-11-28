@@ -25,11 +25,17 @@
     margin: 10px;
 }
 
+.card{
+    text-decoration: none;
+    color: black;
+}
+
 .res-card {
     padding: 5px;
     margin: 10px;
     width: 200px;
     background-color: #f0f0f0;
+    text-decoration: none;
 }
 
 .res-card:hover {
@@ -73,4 +79,8 @@
 
 .filter {
     display: flex;
+}
+.user-card {
+    padding: 1px;
+    border: 1px solid black;
 }
