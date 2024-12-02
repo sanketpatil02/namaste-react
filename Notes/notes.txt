@@ -31,3 +31,5 @@ a JS function that returns a React element.
 useState-> whenever a state variable updates, react rerenders the component (react triggers reconsiliation cycle).
 
 useEffect-> when component gets re-rendered, callback function in useEffect gets called.
+
+Chunking/ Code Splitting/ Dynamic Bundling/ Lazy Loading/ On Demand Loading/ Dynamic import
