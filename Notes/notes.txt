@@ -33,3 +33,5 @@ useState-> whenever a state variable updates, react rerenders the component (rea
 useEffect-> when component gets re-rendered, callback function in useEffect gets called.
 
 Chunking/ Code Splitting/ Dynamic Bundling/ Lazy Loading/ On Demand Loading/ Dynamic import
+
+sass, scss, styled-components, material-ui, ant design, chakra-ui, bootstrap, tailwind css.
