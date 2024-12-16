@@ -1,13 +1,18 @@
-import RestaurantCard from "./RestaurantCard";
-import { useState, useEffect } from "react";
+import RestaurantCard, { withHigherRating } from "./RestaurantCard";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
+
+  const HighRatedRes = withHigherRating(RestaurantCard);
+
+  // console.log("ListOFRest ", listOfRestaurants);
 
   useEffect(() => {
     fetchData();
@@ -44,6 +49,8 @@ const Body = () => {
       <h1>Looks like you're offline. Please check your internet connection</h1>
     );
 
+  const { loggedInUser, setUserName } = useContext(UserContext);
+
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
@@ -71,7 +78,7 @@ const Body = () => {
               setFilteredRestaurants(filteredList);
             }}
           >
-            search
+            Search
           </button>
         </div>
         <div className="m-2 p-4">
@@ -86,6 +93,15 @@ const Body = () => {
             Top Rated Restaurants
           </button>
         </div>
+
+        <div className="m-2 p-4 flex items-center">
+          <lebel className={"pr-2"}>UserName:</lebel>
+          <input
+            value={loggedInUser}
+            className="border border-black p-1"
+            onChange={(e) => setUserName(e.target.value)}
+          />
+        </div>
       </div>
       <div className="flex flex-wrap">
         {filteredRestaurants.map((restaurant) => (
@@ -94,7 +110,14 @@ const Body = () => {
             key={restaurant.info.id}
             to={"restaurants/" + restaurant.info.id}
           >
-            <RestaurantCard resData={restaurant} />
+            {/* if restaurant has rating higher than 4.2, then add a label to that resCard */}
+            {restaurant.info.avgRating > 4.2 ? (
+              // console.log(restaurant.info.name, ": ", restaurant.info.avgRating)
+
+              <HighRatedRes resData={restaurant} />
+            ) : (
+              <RestaurantCard resData={restaurant} />
+            )}
           </Link>
         ))}
       </div>

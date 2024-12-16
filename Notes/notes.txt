@@ -35,3 +35,11 @@ useEffect-> when component gets re-rendered, callback function in useEffect gets
 Chunking/ Code Splitting/ Dynamic Bundling/ Lazy Loading/ On Demand Loading/ Dynamic import
 
 sass, scss, styled-components, material-ui, ant design, chakra-ui, bootstrap, tailwind css.
+
+When to Use Props vs Context:
+Scenario    ->  Use Props   ->  Use Context
+1. Data sharing between parent and child	✅ Ideal for passing data from parent to child	❌ Not needed unless the data needs to be global
+2. Deeply nested components	❌ Can lead to prop drilling	✅ Avoids prop drilling, makes data accessible to deeply nested components
+3. Global state (e.g., theme, authentication)	❌ Not ideal for global data, can be cumbersome	✅ Perfect for global shared data across many components
+4. Single-use component data	✅ Use props for data that is local to a specific component	❌ Overhead for one-off data needs
+5. Shared data across multiple components	❌ Requires passing props down through multiple levels	✅ Use context to share the data with many components
