@@ -9,6 +9,7 @@ const RestaurantCategory = (props) => {
   const handleClick = () => {
     setShowIndex();
   };
+  // console.log("Res ", data.itemCards);
 
   return (
     <div className="w-6/12 mx-auto my-4 bg-gray-100 shadow-lg p-4">
@@ -23,9 +24,9 @@ const RestaurantCategory = (props) => {
         <span>{showItems ? "🔼" : "🔽"}</span>
       </div>
 
-      {/* ccordian body */}
+      {/* accordian body */}
 
-      <div>{showItems && <ItemList list={data.itemCards} />}</div>
+      <div>{showItems && <ItemList items={data.itemCards} />}</div>
     </div>
   );
 };

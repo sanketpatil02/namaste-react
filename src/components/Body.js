@@ -95,7 +95,7 @@ const Body = () => {
         </div>
 
         <div className="m-2 p-4 flex items-center">
-          <lebel className={"pr-2"}>UserName:</lebel>
+          <label className={"pr-2"}>UserName:</label>
           <input
             value={loggedInUser}
             className="border border-black p-1"
