@@ -59,6 +59,7 @@ const Body = () => {
         <div className="m-2 p-4">
           <input
             type="text"
+            data-testid="searchInput"
             className="border border-solid border-black"
             value={searchText}
             onChange={(e) => {
@@ -73,7 +74,7 @@ const Body = () => {
                   .toLowerCase()
                   .includes(searchText.toLowerCase());
               });
-              // console.log(filteredList);
+              // console.log("Filtered list: ", filteredList);
 
               setFilteredRestaurants(filteredList);
             }}
